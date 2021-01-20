@@ -24,7 +24,7 @@ jinja2模板中使用 `{{ }}` 语法表示一个变量。
 它是一种特殊的占位符。当利用jinja2进行渲染的时候，它会把这些特殊的占位符进行填充/替换。
 
 jinja2支持python中所有的Python数据类型，比如列表、字典等。
-```python
+```jinja
 <p>this is a dicectory:{{ mydict[ 'key' ] }} </p>
 <p>this is a list:{{ mylist[3] }} </p>
 <p>this is a object:{{ myobject.something() }} </p>
@@ -62,7 +62,7 @@ jinja2中的if语句类似与Python的if语句，它也具有单分支，多分�
 
 不同的是，jinja的条件语句不需要使用冒号结尾，而结束控制语句，需要使用endif关键字。
 
-```python
+```jinja
 {%  if  daxin.safe %}
 daxin is safe.
 {% elif daxin.dead %}
@@ -77,7 +77,7 @@ jinja2中的for循环用于迭代Python的数据类型，包括列表，元组�
 在jinja2中不存在while循环。
 
 迭代列表：
-```python
+```jinja
 <ul>
 {%  for  user in users %}
 <li>{{ user.username|title }}</li>
@@ -86,7 +86,7 @@ jinja2中的for循环用于迭代Python的数据类型，包括列表，元组�
 ```
 
 迭代字典：
-```python
+```jinja
 <dl>
 {%  for  key, value in my_dict.iteritems() %}
 <dt>{{ key }}</dt>
@@ -206,9 +206,6 @@ def test2():
 </body>
 </html>
 ```
-<img src="./img/loop.jpg" class="img-responsive" alt="响应式图像">
-
-<img src="img/loop.jpg"  height="60%">
 
 ![](img/loop.jpg)
 
@@ -218,7 +215,7 @@ jinja2模板中使用 `{# #}` 语法进行注释，注释的内容不会在html�
 `{# COMMENT #}`
 
 如：
-```python
+```jinja
 {# This is jinja code
      {%  for  file in filenames %}
      ...
@@ -286,7 +283,7 @@ jinja2模板中使用 `{# #}` 语法进行注释，注释的内容不会在html�
 使用这些过滤器只需要在变量后面使用竖线(`|`)分割。
 
 多个过滤器可以链式调用，前一个过滤器的输出会作为后一个过滤器的输入。
-```python
+```jinja
 {{  'abc'  | captialize  }}
 # Abc
  
@@ -306,7 +303,7 @@ jinja2模板中使用 `{# #}` 语法进行注释，注释的内容不会在html�
 宏类似于Python中的函数。我们在宏中定义行为，还可以进行传递参数，就像Python中的函数一样。
 
 在宏中定义一个宏的关键字是**macro**，后面跟其宏的名称和参数等
-```python
+```jinja
 {% macro input(name,age=18) %}   
 # 定义宏，参数age的默认值为18
  
@@ -315,7 +312,7 @@ jinja2模板中使用 `{# #}` 语法进行注释，注释的内容不会在html�
 {% endmacro %}
 ```
 调用方法也和Python的类似
-```python
+```jinja
 <p>{{ input( 'daxin' ) }} </p>
 <p>{{ input( 'daxin', age=20) }} </p>
 ```
@@ -325,14 +322,14 @@ jinja2模板中使用 `{# #}` 语法进行注释，注释的内容不会在html�
 这样可以让我们的主HTML文件，内容更加简练。节省空间，可读性更强。
 
 例如，将一个macro放在'_macro.html'中，然后引入到我们的文件里：
-```python
+```jinja
 {% import '_macro.html' as ui %}
 ``` 
 
 这里注意，**必须**要加 **as 库名** ，不然我们引用函数的时候，都不知道从哪里来的函数。
 
 调用的方式也有点改变：
-```python
+```jinja
 {{ ui.input('username') }}
 {{ ui.input('password',type='password') }}
 ```
@@ -345,11 +342,11 @@ Jinja2中最强大的部分就是**模板继承**。
 Jinja2的骨架文件中，利用**block**关键字表示其包涵的内容可以进行修改。每个block都代表一段html语句块，这些块可以在当前的html文件中定义，也可以在别的html中定义。
 
 定义的时候，如果py文件链接的是home.html，但home.html引用了base.html的模板，home.html 顶部必须说明继承关系。
-```python
+```jinja
 {% extends 'base.html' %}
 ```
 块的定义格式，endblock 后面块名可以省略，有时候加上会让结构更加明晰
-```python
+```jinja
 {% block 块名 %}
     块内容
 {% endblock (块名)%}
@@ -359,46 +356,56 @@ Jinja2的骨架文件中，利用**block**关键字表示其包涵的内容可�
 以下面的骨架文件base.html为例：
 ```html
 <! DOCTYPE  html>
-< html  lang="en">
-< head >
-     {% block head %}
-     < link  rel="stylesheet" href="style.css"/>
-     < title >{% block title %}{% endblock %} - My Webpage</ title >
-     {% endblock %}
-</ head >
-< body >
-< div  id="content">{% block content %}{% endblock %}</ div >
-< div  id="footer">
-     {% block  footer %}
-     < script >This is javascript code </ script >
-     {% endblock %}
-</ div >
-</ body >
-</ html >
+<html lang="en">
+<head>
+    {% block head %}
+        <title>
+            {% block title %}title{% endblock %} - My Webpage
+        </title>
+    {% endblock %}
+</head>
+<body>
+<div id="content">
+    {% block content %}
+        <p>this is content</p>
+    {% endblock %}
+</div>
+<div id="footer">
+    {% block  footer %}
+        <p>this is footer</p>
+    {% endblock %}
+</div>
+</body>
+</html>
 ```
+![](img/base.jpg)
+
 这里定义了四处 block，即：head，title，content，footer。
 
 那怎么进行继承和变量替换呢？
 
 注意看下面的文件
 
-```python
-{ %  extend  "base.html"  % }        
-# 继承base.html文件
- 
-{ %  block title  % } Dachenzi { %  endblock  % }    
-# 定制title部分的内容
- 
-{ %  block head  % }
-     {{   super ()  }}         
-     # 用于获取原有的信息
-     <style  type = 'text/css' >
-     .important { color:  #FFFFFF }
-     < / style>
-{ %  endblock  % }   
- 
-# 其他不修改的原封不同的继承
+```jinja
+{% extends "base.html" %}
+{# 继承base.html文件#}
+
+{% block title %} jinja title {% endblock %}
+{# 定制title部分的内容#}
+
+{% block head %}
+    {{ super () }}
+{# 用于获取原有的信息 #}
+{% endblock %}
+
+{% block footer %} 
+This is jinja footer 
+{% endblock %}
+{# 定制footer部分的内容#}
 ```
+
+![](img/super.jpg)
+
 注意，super()函数表示获取block块中定义的原来的内容。
 
 ### 利用jinja进行渲染

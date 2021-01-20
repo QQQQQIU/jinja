@@ -200,9 +200,9 @@
 <p>jinja2模板中使用 <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">}}</span></code> 语法表示一个变量。</p>
 <p>它是一种特殊的占位符。当利用jinja2进行渲染的时候，它会把这些特殊的占位符进行填充/替换。</p>
 <p>jinja2支持python中所有的Python数据类型，比如列表、字典等。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">dicectory</span><span class="p">:{{</span> <span class="n">mydict</span><span class="p">[</span> <span class="s1">&#39;key&#39;</span> <span class="p">]</span> <span class="p">}}</span> <span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="nb">list</span><span class="p">:{{</span> <span class="n">mylist</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">}}</span> <span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="nb">object</span><span class="p">:{{</span> <span class="n">myobject</span><span class="o">.</span><span class="n">something</span><span class="p">()</span> <span class="p">}}</span> <span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;p&gt;this is a dicectory:</span><span class="cp">{{</span> <span class="nv">mydict</span><span class="o">[</span> <span class="s1">&#39;key&#39;</span> <span class="o">]</span> <span class="cp">}}</span><span class="x"> &lt;/p&gt;</span>
+<span class="x">&lt;p&gt;this is a list:</span><span class="cp">{{</span> <span class="nv">mylist</span><span class="o">[</span><span class="m">3</span><span class="o">]</span> <span class="cp">}}</span><span class="x"> &lt;/p&gt;</span>
+<span class="x">&lt;p&gt;this is a object:</span><span class="cp">{{</span> <span class="nv">myobject.something</span><span class="o">()</span> <span class="cp">}}</span><span class="x"> &lt;/p&gt;</span>
 </pre></div>
 </div>
 <p>示例：</p>
@@ -238,13 +238,13 @@
 <h4><span class="section-number">2.2.2.1. </span>if语句<a class="headerlink" href="#if" title="永久链接至标题">¶</a></h4>
 <p>jinja2中的if语句类似与Python的if语句，它也具有单分支，多分支等多种结构。</p>
 <p>不同的是，jinja的条件语句不需要使用冒号结尾，而结束控制语句，需要使用endif关键字。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span>  <span class="k">if</span>  <span class="n">daxin</span><span class="o">.</span><span class="n">safe</span> <span class="o">%</span><span class="p">}</span>
-<span class="n">daxin</span> <span class="ow">is</span> <span class="n">safe</span><span class="o">.</span>
-<span class="p">{</span><span class="o">%</span> <span class="k">elif</span> <span class="n">daxin</span><span class="o">.</span><span class="n">dead</span> <span class="o">%</span><span class="p">}</span>
-<span class="n">daxin</span> <span class="ow">is</span> <span class="n">dead</span>
-<span class="p">{</span><span class="o">%</span>  <span class="k">else</span>  <span class="o">%</span><span class="p">}</span>
-<span class="n">daxin</span> <span class="ow">is</span> <span class="n">okay</span>
-<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span>  <span class="k">if</span>  <span class="nv">daxin.safe</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">daxin is safe.</span>
+<span class="cp">{%</span> <span class="k">elif</span> <span class="nv">daxin.dead</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">daxin is dead</span>
+<span class="cp">{%</span>  <span class="k">else</span>  <span class="cp">%}</span><span class="x"></span>
+<span class="x">daxin is okay</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
 </div>
@@ -253,20 +253,20 @@
 <p>jinja2中的for循环用于迭代Python的数据类型，包括列表，元组和字典。</p>
 <p>在jinja2中不存在while循环。</p>
 <p>迭代列表：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
-<span class="p">{</span><span class="o">%</span>  <span class="k">for</span>  <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span> <span class="o">%</span><span class="p">}</span>
-<span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="o">|</span><span class="n">title</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-<span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
-<span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;ul&gt;</span>
+<span class="cp">{%</span>  <span class="k">for</span>  <span class="nv">user</span> <span class="k">in</span> <span class="nv">users</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;li&gt;</span><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">title</span> <span class="cp">}}</span><span class="x">&lt;/li&gt;</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;/ul&gt;</span>
 </pre></div>
 </div>
 <p>迭代字典：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">dl</span><span class="o">&gt;</span>
-<span class="p">{</span><span class="o">%</span>  <span class="k">for</span>  <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">iteritems</span><span class="p">()</span> <span class="o">%</span><span class="p">}</span>
-<span class="o">&lt;</span><span class="n">dt</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">key</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">dt</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">dd</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">value</span><span class="p">}}</span><span class="o">&lt;/</span><span class="n">dd</span><span class="o">&gt;</span>
-<span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
-<span class="o">&lt;/</span><span class="n">dl</span><span class="o">&gt;</span>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;dl&gt;</span>
+<span class="cp">{%</span>  <span class="k">for</span>  <span class="nv">key</span><span class="o">,</span> <span class="nv">value</span> <span class="k">in</span> <span class="nv">my_dict.iteritems</span><span class="o">()</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;dt&gt;</span><span class="cp">{{</span> <span class="nv">key</span> <span class="cp">}}</span><span class="x">&lt;/dt&gt;</span>
+<span class="x">&lt;dd&gt;</span><span class="cp">{{</span> <span class="nv">value</span><span class="cp">}}</span><span class="x">&lt;/dd&gt;</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;/dl&gt;</span>
 </pre></div>
 </div>
 <p>可以看到，for循环的使用方式和Python比较类似，但是没有了句尾的冒号，另外需要使用endfor作为结尾。</p>
@@ -374,7 +374,7 @@
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<img src="./img/loop.jpg" class="img-responsive" alt="响应式图像"><img src="img/loop.jpg"  height="60%"><p><img alt="_images/loop.jpg" src="_images/loop.jpg" /></p>
+<p><img alt="_images/loop.jpg" src="_images/loop.jpg" /></p>
 </div>
 </div>
 <div class="section" id="id5">
@@ -382,11 +382,11 @@
 <p>jinja2模板中使用 <code class="docutils literal notranslate"><span class="pre">{#</span> <span class="pre">#}</span></code> 语法进行注释，注释的内容不会在html中被渲染出来。</p>
 <p><code class="docutils literal notranslate"><span class="pre">{#</span> <span class="pre">COMMENT</span> <span class="pre">#}</span></code></p>
 <p>如：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="c1"># This is jinja code</span>
-     <span class="p">{</span><span class="o">%</span>  <span class="k">for</span>  <span class="n">file</span> <span class="ow">in</span> <span class="n">filenames</span> <span class="o">%</span><span class="p">}</span>
-     <span class="o">...</span>
-     <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
-<span class="c1">#}</span>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="c">{# This is jinja code</span>
+<span class="c">     {%  for  file in filenames %}</span>
+<span class="c">     ...</span>
+<span class="c">     {% endfor %}</span>
+<span class="c">#}</span><span class="x"></span>
 </pre></div>
 </div>
 </div>
@@ -448,20 +448,20 @@
 </table>
 <br><p>使用这些过滤器只需要在变量后面使用竖线(<code class="docutils literal notranslate"><span class="pre">|</span></code>)分割。</p>
 <p>多个过滤器可以链式调用，前一个过滤器的输出会作为后一个过滤器的输入。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span>  <span class="s1">&#39;abc&#39;</span>  <span class="o">|</span> <span class="n">captialize</span>  <span class="p">}}</span>
-<span class="c1"># Abc</span>
- 
-<span class="p">{{</span>  <span class="s1">&#39;abc&#39;</span>  <span class="o">|</span> <span class="n">upper</span>  <span class="p">}}</span>
-<span class="c1"># ABC</span>
- 
-<span class="p">{{</span>  <span class="s1">&#39;hello world&#39;</span>  <span class="o">|</span> <span class="n">title</span>  <span class="p">}}</span>
-<span class="c1"># Hello World</span>
- 
-<span class="p">{{</span>  <span class="s2">&quot;hello world&quot;</span>  <span class="o">|</span> <span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;world&#39;</span> <span class="p">,</span> <span class="s1">&#39;daxin&#39;</span> <span class="p">)</span> <span class="o">|</span> <span class="n">upper</span> <span class="p">}}</span>
-<span class="c1"># HELLO DAXIN</span>
- 
-<span class="p">{{</span> <span class="mf">18.18</span> <span class="o">|</span> <span class="nb">round</span> <span class="o">|</span> <span class="nb">int</span> <span class="p">}}</span>
-<span class="c1"># 18</span>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span>  <span class="s1">&#39;abc&#39;</span>  <span class="o">|</span> <span class="nf">captialize</span>  <span class="cp">}}</span><span class="x"></span>
+<span class="x"># Abc</span>
+<span class="x"> </span>
+<span class="cp">{{</span>  <span class="s1">&#39;abc&#39;</span>  <span class="o">|</span> <span class="nf">upper</span>  <span class="cp">}}</span><span class="x"></span>
+<span class="x"># ABC</span>
+<span class="x"> </span>
+<span class="cp">{{</span>  <span class="s1">&#39;hello world&#39;</span>  <span class="o">|</span> <span class="nf">title</span>  <span class="cp">}}</span><span class="x"></span>
+<span class="x"># Hello World</span>
+<span class="x"> </span>
+<span class="cp">{{</span>  <span class="s2">&quot;hello world&quot;</span>  <span class="o">|</span> <span class="nf">replace</span><span class="o">(</span> <span class="s1">&#39;world&#39;</span> <span class="o">,</span> <span class="s1">&#39;daxin&#39;</span> <span class="o">)</span> <span class="o">|</span> <span class="nf">upper</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x"># HELLO DAXIN</span>
+<span class="x"> </span>
+<span class="cp">{{</span> <span class="m">18.18</span> <span class="o">|</span> <span class="nf">round</span> <span class="o">|</span> <span class="nf">int</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x"># 18</span>
 </pre></div>
 </div>
 </div>
@@ -469,29 +469,29 @@
 <h2><span class="section-number">2.4. </span>Jinja中的宏<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>宏类似于Python中的函数。我们在宏中定义行为，还可以进行传递参数，就像Python中的函数一样。</p>
 <p>在宏中定义一个宏的关键字是<strong>macro</strong>，后面跟其宏的名称和参数等</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">macro</span> <span class="nb">input</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span> <span class="o">%</span><span class="p">}</span>   
-<span class="c1"># 定义宏，参数age的默认值为18</span>
- 
-  <span class="o">&lt;</span><span class="nb">input</span>  <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span>  <span class="n">name</span><span class="o">=</span> <span class="s2">&quot;{{ name }}&quot;</span>  <span class="n">value</span><span class="o">=</span> <span class="s2">&quot;{{ age }}&quot;</span>  <span class="o">&gt;</span>
- 
-<span class="p">{</span><span class="o">%</span> <span class="n">endmacro</span> <span class="o">%</span><span class="p">}</span>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">input</span><span class="o">(</span><span class="nv">name</span><span class="o">,</span><span class="nv">age</span><span class="o">=</span><span class="m">18</span><span class="o">)</span> <span class="cp">%}</span><span class="x">   </span>
+<span class="x"># 定义宏，参数age的默认值为18</span>
+<span class="x"> </span>
+<span class="x">  &lt;input  type = &#39;text&#39;  name= &quot;</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="x">&quot;  value= &quot;</span><span class="cp">{{</span> <span class="nv">age</span> <span class="cp">}}</span><span class="x">&quot;  &gt;</span>
+<span class="x"> </span>
+<span class="cp">{%</span> <span class="k">endmacro</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
 <p>调用方法也和Python的类似</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">{{</span> <span class="nb">input</span><span class="p">(</span> <span class="s1">&#39;daxin&#39;</span> <span class="p">)</span> <span class="p">}}</span> <span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">{{</span> <span class="nb">input</span><span class="p">(</span> <span class="s1">&#39;daxin&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="p">}}</span> <span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">input</span><span class="o">(</span> <span class="s1">&#39;daxin&#39;</span> <span class="o">)</span> <span class="cp">}}</span><span class="x"> &lt;/p&gt;</span>
+<span class="x">&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">input</span><span class="o">(</span> <span class="s1">&#39;daxin&#39;</span><span class="o">,</span> <span class="nv">age</span><span class="o">=</span><span class="m">20</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> &lt;/p&gt;</span>
 </pre></div>
 </div>
 <p>宏像函数一样，也可以被集合在一起（一个HTML中）,用的时候像调用库函数一样import使用。</p>
 <p>这样可以让我们的主HTML文件，内容更加简练。节省空间，可读性更强。</p>
 <p>例如，将一个macro放在’_macro.html’中，然后引入到我们的文件里：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="kn">import</span> <span class="s1">&#39;_macro.html&#39;</span> <span class="k">as</span> <span class="n">ui</span> <span class="o">%</span><span class="p">}</span>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">import</span> <span class="s1">&#39;_macro.html&#39;</span> <span class="k">as</span> <span class="nv">ui</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
 <p>这里注意，<strong>必须</strong>要加 <strong>as 库名</strong> ，不然我们引用函数的时候，都不知道从哪里来的函数。</p>
 <p>调用的方式也有点改变：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span> <span class="n">ui</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span> <span class="p">}}</span>
-<span class="p">{{</span> <span class="n">ui</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;password&#39;</span><span class="p">)</span> <span class="p">}}</span>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">ui.input</span><span class="o">(</span><span class="s1">&#39;username&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">ui.input</span><span class="o">(</span><span class="s1">&#39;password&#39;</span><span class="o">,</span><span class="nv">type</span><span class="o">=</span><span class="s1">&#39;password&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
 </div>
@@ -501,56 +501,63 @@
 <p>模板继承允许我们创建一个基本(骨架)文件，其他文件从该骨架文件继承，然后针对自己需要的地方进行修改。</p>
 <p>Jinja2的骨架文件中，利用<strong>block</strong>关键字表示其包涵的内容可以进行修改。每个block都代表一段html语句块，这些块可以在当前的html文件中定义，也可以在别的html中定义。</p>
 <p>定义的时候，如果py文件链接的是home.html，但home.html引用了base.html的模板，home.html 顶部必须说明继承关系。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s1">&#39;base.html&#39;</span> <span class="o">%</span><span class="p">}</span>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;base.html&#39;</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
 <p>块的定义格式，endblock 后面块名可以省略，有时候加上会让结构更加明晰</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">块名</span> <span class="o">%</span><span class="p">}</span>
-    <span class="n">块内容</span>
-<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="p">(</span><span class="n">块名</span><span class="p">)</span><span class="o">%</span><span class="p">}</span>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">block</span> <span class="p">块名</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    块内容</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="o">(</span><span class="p">块名</span><span class="o">)</span><span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
 <p>定义了块之后，base.html中对应的块，就会被这些块内容覆盖，也可以既不覆盖通用模板的内容，又在其基础上，增加一些东西。</p>
 <p>以下面的骨架文件base.html为例：</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;! DOCTYPE  html&gt;</span>
-<span class="p">&lt;</span> <span class="nt">html</span>  <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span> <span class="nt">head</span> <span class="p">&gt;</span>
-     {% block head %}
-     <span class="p">&lt;</span> <span class="nt">link</span>  <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;style.css&quot;</span><span class="p">/&gt;</span>
-     <span class="p">&lt;</span> <span class="nt">title</span> <span class="p">&gt;</span>{% block title %}{% endblock %} - My Webpage<span class="p">&lt;/</span> <span class="nt">title</span> <span class="p">&gt;</span>
-     {% endblock %}
-<span class="p">&lt;/</span> <span class="nt">head</span> <span class="p">&gt;</span>
-<span class="p">&lt;</span> <span class="nt">body</span> <span class="p">&gt;</span>
-<span class="p">&lt;</span> <span class="nt">div</span>  <span class="na">id</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span>{% block content %}{% endblock %}<span class="p">&lt;/</span> <span class="nt">div</span> <span class="p">&gt;</span>
-<span class="p">&lt;</span> <span class="nt">div</span>  <span class="na">id</span><span class="o">=</span><span class="s">&quot;footer&quot;</span><span class="p">&gt;</span>
-     {% block  footer %}
-     <span class="p">&lt;</span> <span class="nt">script</span> <span class="p">&gt;</span><span class="nx">This</span> <span class="nx">is</span> <span class="nx">javascript</span> <span class="nx">code</span> <span class="p">&lt;/</span> <span class="nt">script</span> <span class="p">&gt;</span>
-     {% endblock %}
-<span class="p">&lt;/</span> <span class="nt">div</span> <span class="p">&gt;</span>
-<span class="p">&lt;/</span> <span class="nt">body</span> <span class="p">&gt;</span>
-<span class="p">&lt;/</span> <span class="nt">html</span> <span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    {% block head %}
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>
+            {% block title %}title{% endblock %} - My Webpage
+        <span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    {% endblock %}
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span>
+    {% block content %}
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>this is content<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    {% endblock %}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;footer&quot;</span><span class="p">&gt;</span>
+    {% block  footer %}
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>this is footer<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    {% endblock %}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </div>
+<p><img alt="_images/base.jpg" src="_images/base.jpg" /></p>
 <p>这里定义了四处 block，即：head，title，content，footer。</p>
 <p>那怎么进行继承和变量替换呢？</p>
 <p>注意看下面的文件</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="o">%</span>  <span class="n">extend</span>  <span class="s2">&quot;base.html&quot;</span>  <span class="o">%</span> <span class="p">}</span>        
-<span class="c1"># 继承base.html文件</span>
- 
-<span class="p">{</span> <span class="o">%</span>  <span class="n">block</span> <span class="n">title</span>  <span class="o">%</span> <span class="p">}</span> <span class="n">Dachenzi</span> <span class="p">{</span> <span class="o">%</span>  <span class="n">endblock</span>  <span class="o">%</span> <span class="p">}</span>    
-<span class="c1"># 定制title部分的内容</span>
- 
-<span class="p">{</span> <span class="o">%</span>  <span class="n">block</span> <span class="n">head</span>  <span class="o">%</span> <span class="p">}</span>
-     <span class="p">{{</span>   <span class="nb">super</span> <span class="p">()</span>  <span class="p">}}</span>         
-     <span class="c1"># 用于获取原有的信息</span>
-     <span class="o">&lt;</span><span class="n">style</span>  <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;text/css&#39;</span> <span class="o">&gt;</span>
-     <span class="o">.</span><span class="n">important</span> <span class="p">{</span> <span class="n">color</span><span class="p">:</span>  <span class="c1">#FFFFFF }</span>
-     <span class="o">&lt;</span> <span class="o">/</span> <span class="n">style</span><span class="o">&gt;</span>
-<span class="p">{</span> <span class="o">%</span>  <span class="n">endblock</span>  <span class="o">%</span> <span class="p">}</span>   
- 
-<span class="c1"># 其他不修改的原封不同的继承</span>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="c">{# 继承base.html文件#}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x"> jinja title </span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+<span class="c">{# 定制title部分的内容#}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">head</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nb">super</span> <span class="o">()</span> <span class="cp">}}</span><span class="x"></span>
+<span class="c">{# 用于获取原有的信息 #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">footer</span> <span class="cp">%}</span><span class="x"> </span>
+<span class="x">This is jinja footer </span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+<span class="c">{# 定制footer部分的内容#}</span><span class="x"></span>
 </pre></div>
 </div>
+<p><img alt="_images/super.jpg" src="_images/super.jpg" /></p>
 <p>注意，super()函数表示获取block块中定义的原来的内容。</p>
 </div>
 <div class="section" id="id8">
@@ -656,6 +663,9 @@
 .wy-nav-content, .wy-nav-content-wrap
 {
      background: lightyellow;
+}
+.highlight{
+     background-color: beige;
 }
 </style>
 
