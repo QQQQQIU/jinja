@@ -3,13 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to jinja's documentation!
+欢迎使用jinja教程！
 =================================
 
 .. toctree::
    :maxdepth: 3
-   :caption: Contents:
-   :numbered:
+   :caption: 目录:
+
 
    part1.md
    part2.md
