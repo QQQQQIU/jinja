@@ -1,4 +1,4 @@
-## 具体使用
+## Jinja使用教程
 ### 安装
 输入以下指令安装jinja2：
 
@@ -31,12 +31,12 @@ jinja2支持python中所有的Python数据类型，比如列表、字典等。
 ```
 示例：
 ```python
-@index_blu.route("/test/")
-def test():
+@app.route('/test1')
+def test1():
     name = "Daniel"
     lst = [1, 2, 3, 4]
     dic = {"jj": '林俊杰', 'jay': '周杰伦'}
-    return render_template("test.html", name=name, lst=lst, dic=dic)
+    return render_template("test1.html", name=name, lst=lst, dic=dic)
 ```
 ```html
 <!DOCTYPE html>
@@ -58,7 +58,9 @@ def test():
 
 #### 控制结构
 ##### if语句
-jinja2中的if语句类似与Python的if语句，它也具有单分支，多分支等多种结构。不同的是，条件语句不需要使用冒号结尾，而结束控制语句，需要使用endif关键字。
+jinja2中的if语句类似与Python的if语句，它也具有单分支，多分支等多种结构。
+
+不同的是，jinja的条件语句不需要使用冒号结尾，而结束控制语句，需要使用endif关键字。
 
 ```python
 {%  if  daxin.safe %}
@@ -98,13 +100,13 @@ jinja2中的for循环用于迭代Python的数据类型，包括列表，元组�
 
 示例：
 ```python
-@index_blu.route("/test/")
-def test():
+@app.route('/test2')
+def test2():
     num = 7
     name = "Daniel"
     lst = [1, 2, 3, 4]
     dic = {"jj": '林俊杰', 'jay': '周杰伦'}
-    return render_template("test.html", name=name, lst=lst, dic=dic, num=num)
+    return render_template("test2.html", name=name, lst=lst, dic=dic, num=num)
 ``` 
 ```HTML
  <!DOCTYPE html>
@@ -172,32 +174,43 @@ def test():
     <tr>
         <td  align="center">loop.revindex0 </td>
         <td >到循环结束的次数（从0开始）</td>
-
+    </tr>
+    <tr>
+        <td  align="center">loop.depth </td>
+        <td >当前循环在递归中的层级（从1开始）</td>
+    </tr>
+    <tr>
+        <td  align="center">loop.depth0 </td>
+        <td >当前循环在递归中的层级（从0开始）</td>
+    </tr>
 </table>
 <br>
 
-如：
+例如：
 ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 <body>
-{% set links = [
-    ('home',url_for('.home')),
-    ('service',url_for('.service')),
-    ('about',url_for('.about')),
-] %}
-
-<nav>
-    {% for label,link in links %}
-        {% if not loop.first %}|{% endif %}
-        <a href="{% if link is current_link %}#
-        {% else %}
-        {{ link }}
-        {% endif %}
-        ">{{ label }}</a>
-    {% endfor %}
-</nav>
+{% for item in [[1,2],[3,4,5]] recursive %}
+  Depth: {{ loop.depth }}<br>
+  {% if item[0] %}
+    {{ loop(item) }}<br>
+  {% else %}
+    Number: {{ item }} ;<br>
+  {% endif %}
+{% endfor %}
 </body>
+</html>
 ```
-![](./img/loop.jpg)
+<img src="./img/loop.jpg" class="img-responsive" alt="响应式图像">
+
+<img src="img/loop.jpg"  height="60%">
+
+![](img/loop.jpg)
 
 #### 注释
 jinja2模板中使用 `{# #}` 语法进行注释，注释的内容不会在html中被渲染出来。

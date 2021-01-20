@@ -9,10 +9,11 @@
 .. toctree::
    :maxdepth: 3
    :caption: 目录:
-
+   :numbered:
 
    part1.md
    part2.md
+   part3.md
 
 
 Indices and tables

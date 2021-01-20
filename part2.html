@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>具体使用 &mdash; jinja 1.0 文档</title>
+  <title>2. Jinja使用教程 &mdash; jinja 1.0 文档</title>
   
 
   
@@ -37,7 +37,8 @@
     
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="prev" title="概念解释" href="part1.html" /> 
+    <link rel="next" title="3. 实例：修改主题颜色" href="part3.html" />
+    <link rel="prev" title="1. 概念解释" href="part1.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,29 +85,30 @@
             
               <p class="caption"><span class="caption-text">目录:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="part1.html">概念解释</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">具体使用</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">安装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">基本语法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">变量取值</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">控制结构</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#if">if语句</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#for">for循环</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part1.html">1. 概念解释</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Jinja使用教程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2.2. 基本语法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.2.1. 变量取值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">2.2.2. 控制结构</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#if">2.2.2.1. if语句</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for">2.2.2.2. for循环</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">注释</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">2.2.3. 注释</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#jinja">Jinja中的过滤器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">Jinja中的宏</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#jinjasuper">Jinja的继承和Super函数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">利用jinja进行渲染</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#packageloader">PackageLoader</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#filesystemloader">FileSystemLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">2.3. Jinja中的过滤器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">2.4. Jinja中的宏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jinjasuper">2.5. Jinja的继承和Super函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">2.6. 利用jinja进行渲染</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#packageloader">2.6.1. PackageLoader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filesystemloader">2.6.2. FileSystemLoader</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="part3.html">3. 实例：修改主题颜色</a></li>
 </ul>
 
             
@@ -153,7 +155,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>具体使用</li>
+      <li><span class="section-number">2. </span>Jinja使用教程</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -172,10 +174,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="id1">
-<h1>具体使用<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="section" id="id2">
-<h2>安装<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+  <div class="section" id="jinja">
+<h1><span class="section-number">2. </span>Jinja使用教程<a class="headerlink" href="#jinja" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2><span class="section-number">2.1. </span>安装<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>输入以下指令安装jinja2：</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">Jinja2</span></code></p>
 <p>输入以下指令，测试模板是否安装成功，没有报错就表示安装成功：</p>
@@ -184,8 +186,8 @@
 <li><p>注意此处必须用双引号”</p></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>基本语法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h2><span class="section-number">2.2. </span>基本语法<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>作为一个模板系统，jinja2提供了特殊的语法。我们按照它支持的语法进行编写之后，就能使用jinja2模块进行渲染。</p>
 <p>在jinja2中，存在三种语法：</p>
 <ul class="simple">
@@ -193,8 +195,8 @@
 <li><p>控制结构 <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">%}</span></code></p></li>
 <li><p>注释 <code class="docutils literal notranslate"><span class="pre">{#</span> <span class="pre">#}</span></code></p></li>
 </ul>
-<div class="section" id="id4">
-<h3>变量取值<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id3">
+<h3><span class="section-number">2.2.1. </span>变量取值<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>jinja2模板中使用 <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">}}</span></code> 语法表示一个变量。</p>
 <p>它是一种特殊的占位符。当利用jinja2进行渲染的时候，它会把这些特殊的占位符进行填充/替换。</p>
 <p>jinja2支持python中所有的Python数据类型，比如列表、字典等。</p>
@@ -204,12 +206,12 @@
 </pre></div>
 </div>
 <p>示例：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@index_blu</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/test/&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/test1&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test1</span><span class="p">():</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Daniel&quot;</span>
     <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
     <span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;jj&quot;</span><span class="p">:</span> <span class="s1">&#39;林俊杰&#39;</span><span class="p">,</span> <span class="s1">&#39;jay&#39;</span><span class="p">:</span> <span class="s1">&#39;周杰伦&#39;</span><span class="p">}</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;test.html&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">lst</span><span class="o">=</span><span class="n">lst</span><span class="p">,</span> <span class="n">dic</span><span class="o">=</span><span class="n">dic</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;test1.html&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">lst</span><span class="o">=</span><span class="n">lst</span><span class="p">,</span> <span class="n">dic</span><span class="o">=</span><span class="n">dic</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
@@ -230,11 +232,12 @@
 </div>
 <p><img alt="_images/var.jpg" src="_images/var.jpg" /></p>
 </div>
-<div class="section" id="id5">
-<h3>控制结构<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id4">
+<h3><span class="section-number">2.2.2. </span>控制结构<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <div class="section" id="if">
-<h4>if语句<a class="headerlink" href="#if" title="永久链接至标题">¶</a></h4>
-<p>jinja2中的if语句类似与Python的if语句，它也具有单分支，多分支等多种结构。不同的是，条件语句不需要使用冒号结尾，而结束控制语句，需要使用endif关键字。</p>
+<h4><span class="section-number">2.2.2.1. </span>if语句<a class="headerlink" href="#if" title="永久链接至标题">¶</a></h4>
+<p>jinja2中的if语句类似与Python的if语句，它也具有单分支，多分支等多种结构。</p>
+<p>不同的是，jinja的条件语句不需要使用冒号结尾，而结束控制语句，需要使用endif关键字。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span>  <span class="k">if</span>  <span class="n">daxin</span><span class="o">.</span><span class="n">safe</span> <span class="o">%</span><span class="p">}</span>
 <span class="n">daxin</span> <span class="ow">is</span> <span class="n">safe</span><span class="o">.</span>
 <span class="p">{</span><span class="o">%</span> <span class="k">elif</span> <span class="n">daxin</span><span class="o">.</span><span class="n">dead</span> <span class="o">%</span><span class="p">}</span>
@@ -246,7 +249,7 @@
 </div>
 </div>
 <div class="section" id="for">
-<h4>for循环<a class="headerlink" href="#for" title="永久链接至标题">¶</a></h4>
+<h4><span class="section-number">2.2.2.2. </span>for循环<a class="headerlink" href="#for" title="永久链接至标题">¶</a></h4>
 <p>jinja2中的for循环用于迭代Python的数据类型，包括列表，元组和字典。</p>
 <p>在jinja2中不存在while循环。</p>
 <p>迭代列表：</p>
@@ -269,13 +272,13 @@
 <p>可以看到，for循环的使用方式和Python比较类似，但是没有了句尾的冒号，另外需要使用endfor作为结尾。</p>
 <p>当然也可以加入else语句，在循环正确执行完毕后执行。</p>
 <p>示例：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@index_blu</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/test/&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/test2&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test2</span><span class="p">():</span>
     <span class="n">num</span> <span class="o">=</span> <span class="mi">7</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Daniel&quot;</span>
     <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
     <span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;jj&quot;</span><span class="p">:</span> <span class="s1">&#39;林俊杰&#39;</span><span class="p">,</span> <span class="s1">&#39;jay&#39;</span><span class="p">:</span> <span class="s1">&#39;周杰伦&#39;</span><span class="p">}</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;test.html&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">lst</span><span class="o">=</span><span class="n">lst</span><span class="p">,</span> <span class="n">dic</span><span class="o">=</span><span class="n">dic</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;test2.html&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">lst</span><span class="o">=</span><span class="n">lst</span><span class="p">,</span> <span class="n">dic</span><span class="o">=</span><span class="n">dic</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">num</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span> <span class="cp">&lt;!DOCTYPE html&gt;</span>
@@ -340,33 +343,42 @@
     </tr>
     <tr>
         <td  align="center">loop.revindex0 </td>
-        <td >到循环结束的次数（从0开始）</td></table>
-<br><p>如：</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-{% set links = [
-    (&#39;home&#39;,url_for(&#39;.home&#39;)),
-    (&#39;service&#39;,url_for(&#39;.service&#39;)),
-    (&#39;about&#39;,url_for(&#39;.about&#39;)),
-] %}
-
-<span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
-    {% for label,link in links %}
-        {% if not loop.first %}|{% endif %}
-        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% if link is current_link %}#</span>
-<span class="s">        {% else %}</span>
-<span class="s">        {{ link }}</span>
-<span class="s">        {% endif %}</span>
-<span class="s">        &quot;</span><span class="p">&gt;</span>{{ label }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-    {% endfor %}
-<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+        <td >到循环结束的次数（从0开始）</td>
+    </tr>
+    <tr>
+        <td  align="center">loop.depth </td>
+        <td >当前循环在递归中的层级（从1开始）</td>
+    </tr>
+    <tr>
+        <td  align="center">loop.depth0 </td>
+        <td >当前循环在递归中的层级（从0开始）</td>
+    </tr>
+</table>
+<br><p>例如：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+{% for item in [[1,2],[3,4,5]] recursive %}
+  Depth: {{ loop.depth }}<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+  {% if item[0] %}
+    {{ loop(item) }}<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+  {% else %}
+    Number: {{ item }} ;<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+  {% endif %}
+{% endfor %}
 <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p><img alt="_images/loop.jpg" src="_images/loop.jpg" /></p>
+<img src="./img/loop.jpg" class="img-responsive" alt="响应式图像"><img src="img/loop.jpg"  height="60%"><p><img alt="_images/loop.jpg" src="_images/loop.jpg" /></p>
 </div>
 </div>
-<div class="section" id="id6">
-<h3>注释<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id5">
+<h3><span class="section-number">2.2.3. </span>注释<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p>jinja2模板中使用 <code class="docutils literal notranslate"><span class="pre">{#</span> <span class="pre">#}</span></code> 语法进行注释，注释的内容不会在html中被渲染出来。</p>
 <p><code class="docutils literal notranslate"><span class="pre">{#</span> <span class="pre">COMMENT</span> <span class="pre">#}</span></code></p>
 <p>如：</p>
@@ -379,8 +391,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="jinja">
-<h2>Jinja中的过滤器<a class="headerlink" href="#jinja" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h2><span class="section-number">2.3. </span>Jinja中的过滤器<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>变量可以通过 <strong>“过滤器”</strong> 进行修改。过滤器可以理解为，是jinja2里面的内置函数和字符串处理函数。</p>
 <p>常用的过滤器有：
 <br></p>
@@ -454,7 +466,7 @@
 </div>
 </div>
 <div class="section" id="id7">
-<h2>Jinja中的宏<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">2.4. </span>Jinja中的宏<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>宏类似于Python中的函数。我们在宏中定义行为，还可以进行传递参数，就像Python中的函数一样。</p>
 <p>在宏中定义一个宏的关键字是<strong>macro</strong>，后面跟其宏的名称和参数等</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">macro</span> <span class="nb">input</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span> <span class="o">%</span><span class="p">}</span>   
@@ -484,7 +496,7 @@
 </div>
 </div>
 <div class="section" id="jinjasuper">
-<h2>Jinja的继承和Super函数<a class="headerlink" href="#jinjasuper" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">2.5. </span>Jinja的继承和Super函数<a class="headerlink" href="#jinjasuper" title="永久链接至标题">¶</a></h2>
 <p>Jinja2中最强大的部分就是<strong>模板继承</strong>。</p>
 <p>模板继承允许我们创建一个基本(骨架)文件，其他文件从该骨架文件继承，然后针对自己需要的地方进行修改。</p>
 <p>Jinja2的骨架文件中，利用<strong>block</strong>关键字表示其包涵的内容可以进行修改。每个block都代表一段html语句块，这些块可以在当前的html文件中定义，也可以在别的html中定义。</p>
@@ -542,7 +554,7 @@
 <p>注意，super()函数表示获取block块中定义的原来的内容。</p>
 </div>
 <div class="section" id="id8">
-<h2>利用jinja进行渲染<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<h2><span class="section-number">2.6. </span>利用jinja进行渲染<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p>jinja2模块中有一个名为Enviroment的类。这个类的实例用于存储配置和全局对象，然后从文件系统或其他位置中加载模板。</p>
 <p>大多数应用都在初始化的时候有一个Environment对象，并用它加载模板。Environment支持两种加载方式：</p>
 <ul class="simple">
@@ -550,7 +562,7 @@
 <li><p>FileSystemLoader：文件系统加载器</p></li>
 </ul>
 <div class="section" id="packageloader">
-<h3>PackageLoader<a class="headerlink" href="#packageloader" title="永久链接至标题">¶</a></h3>
+<h3><span class="section-number">2.6.1. </span>PackageLoader<a class="headerlink" href="#packageloader" title="永久链接至标题">¶</a></h3>
 <p>使用包加载器来加载文档的最简单的方式如下：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kn">from</span>  <span class="nn">jinja2</span>  <span class="kn">import</span>  <span class="n">PackageLoader</span><span class="p">,</span><span class="n">Environment</span>
 
@@ -571,7 +583,7 @@
 </ul>
 </div>
 <div class="section" id="filesystemloader">
-<h3>FileSystemLoader<a class="headerlink" href="#filesystemloader" title="永久链接至标题">¶</a></h3>
+<h3><span class="section-number">2.6.2. </span>FileSystemLoader<a class="headerlink" href="#filesystemloader" title="永久链接至标题">¶</a></h3>
 <p>文件系统加载器，不需要模板文件存在某个Python包下，可以直接访问系统中的文件。</p>
 </div>
 </div>
@@ -585,8 +597,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="part3.html" class="btn btn-neutral float-right" title="3. 实例：修改主题颜色" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="part1.html" class="btn btn-neutral float-left" title="概念解释" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="part1.html" class="btn btn-neutral float-left" title="1. 概念解释" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -638,6 +652,10 @@
 /* Sidebar */
 .wy-nav-side {
      background: purple;
+}
+.wy-nav-content, .wy-nav-content-wrap
+{
+     background: lightyellow;
 }
 </style>
 
