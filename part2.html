@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. 具体使用 &mdash; jinja 1.0 文档</title>
+  <title>具体使用 &mdash; jinja 1.0 文档</title>
   
 
   
@@ -37,7 +37,7 @@
     
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="prev" title="1. 概念解释" href="part1.html" /> 
+    <link rel="prev" title="概念解释" href="part1.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,27 +82,27 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">目录:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="part1.html">1. 概念解释</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. 具体使用</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">2.1. 安装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">2.2. 基本语法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">2.2.1. 变量取值</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">2.2.2. 控制结构</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#if">2.2.2.1. if语句</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#for">2.2.2.2. for循环</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part1.html">概念解释</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">具体使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">基本语法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">变量取值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">控制结构</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#if">if语句</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for">for循环</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">2.2.3. 注释</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">注释</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#jinja">2.3. Jinja中的过滤器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">2.4. Jinja中的宏</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#jinjasuper">2.5. Jinja的继承和Super函数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">2.6. 利用jinja进行渲染</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#packageloader">2.6.1. PackageLoader</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#filesystemloader">2.6.2. FileSystemLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jinja">Jinja中的过滤器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">Jinja中的宏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jinjasuper">Jinja的继承和Super函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">利用jinja进行渲染</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#packageloader">PackageLoader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filesystemloader">FileSystemLoader</a></li>
 </ul>
 </li>
 </ul>
@@ -153,7 +153,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li><span class="section-number">2. </span>具体使用</li>
+      <li>具体使用</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -173,9 +173,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1><span class="section-number">2. </span>具体使用<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>具体使用<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
-<h2><span class="section-number">2.1. </span>安装<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>安装<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>输入以下指令安装jinja2：</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">Jinja2</span></code></p>
 <p>输入以下指令，测试模板是否安装成功，没有报错就表示安装成功：</p>
@@ -185,7 +185,7 @@
 </ul>
 </div>
 <div class="section" id="id3">
-<h2><span class="section-number">2.2. </span>基本语法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>基本语法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>作为一个模板系统，jinja2提供了特殊的语法。我们按照它支持的语法进行编写之后，就能使用jinja2模块进行渲染。</p>
 <p>在jinja2中，存在三种语法：</p>
 <ul class="simple">
@@ -194,7 +194,7 @@
 <li><p>注释 <code class="docutils literal notranslate"><span class="pre">{#</span> <span class="pre">#}</span></code></p></li>
 </ul>
 <div class="section" id="id4">
-<h3><span class="section-number">2.2.1. </span>变量取值<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<h3>变量取值<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>jinja2模板中使用 <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">}}</span></code> 语法表示一个变量。</p>
 <p>它是一种特殊的占位符。当利用jinja2进行渲染的时候，它会把这些特殊的占位符进行填充/替换。</p>
 <p>jinja2支持python中所有的Python数据类型，比如列表、字典等。</p>
@@ -231,9 +231,9 @@
 <p><img alt="_images/var.jpg" src="_images/var.jpg" /></p>
 </div>
 <div class="section" id="id5">
-<h3><span class="section-number">2.2.2. </span>控制结构<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<h3>控制结构<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <div class="section" id="if">
-<h4><span class="section-number">2.2.2.1. </span>if语句<a class="headerlink" href="#if" title="永久链接至标题">¶</a></h4>
+<h4>if语句<a class="headerlink" href="#if" title="永久链接至标题">¶</a></h4>
 <p>jinja2中的if语句类似与Python的if语句，它也具有单分支，多分支等多种结构。不同的是，条件语句不需要使用冒号结尾，而结束控制语句，需要使用endif关键字。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span>  <span class="k">if</span>  <span class="n">daxin</span><span class="o">.</span><span class="n">safe</span> <span class="o">%</span><span class="p">}</span>
 <span class="n">daxin</span> <span class="ow">is</span> <span class="n">safe</span><span class="o">.</span>
@@ -246,7 +246,7 @@
 </div>
 </div>
 <div class="section" id="for">
-<h4><span class="section-number">2.2.2.2. </span>for循环<a class="headerlink" href="#for" title="永久链接至标题">¶</a></h4>
+<h4>for循环<a class="headerlink" href="#for" title="永久链接至标题">¶</a></h4>
 <p>jinja2中的for循环用于迭代Python的数据类型，包括列表，元组和字典。</p>
 <p>在jinja2中不存在while循环。</p>
 <p>迭代列表：</p>
@@ -366,7 +366,7 @@
 </div>
 </div>
 <div class="section" id="id6">
-<h3><span class="section-number">2.2.3. </span>注释<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<h3>注释<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <p>jinja2模板中使用 <code class="docutils literal notranslate"><span class="pre">{#</span> <span class="pre">#}</span></code> 语法进行注释，注释的内容不会在html中被渲染出来。</p>
 <p><code class="docutils literal notranslate"><span class="pre">{#</span> <span class="pre">COMMENT</span> <span class="pre">#}</span></code></p>
 <p>如：</p>
@@ -380,7 +380,7 @@
 </div>
 </div>
 <div class="section" id="jinja">
-<h2><span class="section-number">2.3. </span>Jinja中的过滤器<a class="headerlink" href="#jinja" title="永久链接至标题">¶</a></h2>
+<h2>Jinja中的过滤器<a class="headerlink" href="#jinja" title="永久链接至标题">¶</a></h2>
 <p>变量可以通过 <strong>“过滤器”</strong> 进行修改。过滤器可以理解为，是jinja2里面的内置函数和字符串处理函数。</p>
 <p>常用的过滤器有：
 <br></p>
@@ -454,7 +454,7 @@
 </div>
 </div>
 <div class="section" id="id7">
-<h2><span class="section-number">2.4. </span>Jinja中的宏<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<h2>Jinja中的宏<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>宏类似于Python中的函数。我们在宏中定义行为，还可以进行传递参数，就像Python中的函数一样。</p>
 <p>在宏中定义一个宏的关键字是<strong>macro</strong>，后面跟其宏的名称和参数等</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">macro</span> <span class="nb">input</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span> <span class="o">%</span><span class="p">}</span>   
@@ -484,7 +484,7 @@
 </div>
 </div>
 <div class="section" id="jinjasuper">
-<h2><span class="section-number">2.5. </span>Jinja的继承和Super函数<a class="headerlink" href="#jinjasuper" title="永久链接至标题">¶</a></h2>
+<h2>Jinja的继承和Super函数<a class="headerlink" href="#jinjasuper" title="永久链接至标题">¶</a></h2>
 <p>Jinja2中最强大的部分就是<strong>模板继承</strong>。</p>
 <p>模板继承允许我们创建一个基本(骨架)文件，其他文件从该骨架文件继承，然后针对自己需要的地方进行修改。</p>
 <p>Jinja2的骨架文件中，利用<strong>block</strong>关键字表示其包涵的内容可以进行修改。每个block都代表一段html语句块，这些块可以在当前的html文件中定义，也可以在别的html中定义。</p>
@@ -542,7 +542,7 @@
 <p>注意，super()函数表示获取block块中定义的原来的内容。</p>
 </div>
 <div class="section" id="id8">
-<h2><span class="section-number">2.6. </span>利用jinja进行渲染<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<h2>利用jinja进行渲染<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p>jinja2模块中有一个名为Enviroment的类。这个类的实例用于存储配置和全局对象，然后从文件系统或其他位置中加载模板。</p>
 <p>大多数应用都在初始化的时候有一个Environment对象，并用它加载模板。Environment支持两种加载方式：</p>
 <ul class="simple">
@@ -550,7 +550,7 @@
 <li><p>FileSystemLoader：文件系统加载器</p></li>
 </ul>
 <div class="section" id="packageloader">
-<h3><span class="section-number">2.6.1. </span>PackageLoader<a class="headerlink" href="#packageloader" title="永久链接至标题">¶</a></h3>
+<h3>PackageLoader<a class="headerlink" href="#packageloader" title="永久链接至标题">¶</a></h3>
 <p>使用包加载器来加载文档的最简单的方式如下：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kn">from</span>  <span class="nn">jinja2</span>  <span class="kn">import</span>  <span class="n">PackageLoader</span><span class="p">,</span><span class="n">Environment</span>
 
@@ -571,7 +571,7 @@
 </ul>
 </div>
 <div class="section" id="filesystemloader">
-<h3><span class="section-number">2.6.2. </span>FileSystemLoader<a class="headerlink" href="#filesystemloader" title="永久链接至标题">¶</a></h3>
+<h3>FileSystemLoader<a class="headerlink" href="#filesystemloader" title="永久链接至标题">¶</a></h3>
 <p>文件系统加载器，不需要模板文件存在某个Python包下，可以直接访问系统中的文件。</p>
 </div>
 </div>
@@ -586,7 +586,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="part1.html" class="btn btn-neutral float-left" title="1. 概念解释" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="part1.html" class="btn btn-neutral float-left" title="概念解释" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -628,7 +628,19 @@
   
   
     
-   
+    
+
+<style>
+/* Sidebar header (and topbar for mobile) */
+.wy-side-nav-search, .wy-nav-top {
+     background: hotpink;
+}
+/* Sidebar */
+.wy-nav-side {
+     background: purple;
+}
+</style>
+
 
 </body>
 </html>
